@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Devesh Poojary</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,6 +151,13 @@ section.zone{padding-block:72px}
 .cover .cap{background:var(--cream);color:var(--navy);padding:10px;border-top:3px solid var(--ink);font:400 1.15rem/1.15 var(--f-term);flex:1}
 .cover .cap b{display:block;font:700 .82rem/1.2 var(--f-px);text-transform:uppercase}
 .cover a{color:var(--purple)}
+/* hover or tap a cover to "decode" it: plain-language note wipes over the art */
+.cover{cursor:pointer;transition:transform .2s}
+.cover:hover,.cover:focus-within{transform:translateY(-4px)}
+.hint{position:absolute;right:8px;bottom:8px;z-index:1;font:700 .6rem/1 var(--f-px);background:var(--ink);color:var(--gold);padding:5px 7px;animation:blink 1.2s steps(1) infinite}
+.decode{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:14px;text-align:left;background:repeating-linear-gradient(rgba(255,255,255,.04) 0 2px,transparent 2px 4px),#0c0a24;color:var(--cream);font:400 1.3rem/1.1 var(--f-term);clip-path:inset(0 0 100% 0);transition:clip-path .4s steps(8)}
+.decode em{font:700 .62rem/1 var(--f-px);font-style:normal;color:var(--teal);text-transform:uppercase;letter-spacing:.08em}
+.cover:hover .decode,.cover:focus-within .decode{clip-path:inset(0)}
 .links{background:var(--teal);color:var(--navy)}
 .links ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .links li::before{content:"✦ "}
@@ -308,12 +315,16 @@ blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--pur
       <article class="win pop">
         <div class="bar o">Featured projects<span class="btns"><i></i><i></i><i></i></span></div>
         <div class="body"><div class="covers">
-          <div class="cover"><div class="art a"><strong>Polymer<br>Predict</strong></div>
-            <div class="cap"><b>AISEHack 2.0</b>Seven properties from SMILES. Beat PolyCL (2025) on several, from scratch. <a href="https://github.com/Devesh1105/polymer-property-prediction" target="_blank" rel="noopener">GitHub →</a></div></div>
-          <div class="cover"><div class="art b"><strong>Bird<br>CLEF+</strong></div>
-            <div class="cap"><b>Kaggle 2026</b>Bronze medal, 394th of 4,084 teams. Bird-call audio classification.</div></div>
-          <div class="cover"><div class="art c"><span>&gt; match(a, b)<br>&gt; same_entity?<br><strong>TRUE_</strong></span></div>
-            <div class="cap"><b>Amazon ML</b>Business entity resolution. Led Team Void to the Top 500.</div></div>
+          <div class="cover" tabindex="0"><div class="art a"><strong>Polymer<br>Predict</strong><span class="hint" aria-hidden="true">? Decode</span>
+              <p class="decode"><em>&gt; In simple words</em>Reads a material's chemical formula and predicts how it behaves in seconds, not months of lab work.</p></div>
+            <div class="cap"><b>AISEHack 2.0</b>Seven properties from SMILES. Beat PolyCL (2025) from scratch. <a href="https://lnkd.in/emcZr7n5" target="_blank" rel="noopener">GitHub →</a></div></div>
+          <div class="cover" tabindex="0"><div class="art b"><strong>Bird<br>CLEF+</strong><span class="hint" aria-hidden="true">? Decode</span>
+              <p class="decode"><em>&gt; In simple words</em>Listens to wild nature recordings and names which species is calling.</p></div>
+            <div class="cap"><b>Kaggle 2026</b>Bronze medal, 394th of 4,084 teams.</div></div>
+          <div class="cover" tabindex="0"><div class="art c"><span>&gt; match(a, b)<br>&gt; same_entity?<br><strong>TRUE_</strong></span><span class="hint" aria-hidden="true">? Decode</span>
+              <p class="decode"><em>&gt; In simple words</em>Spots messy records that are secretly the same company, so data stays clean.</p></div>
+            <div class="cap"><b>Amazon ML</b>Entity resolution. Led Team Void to the Top 500.</div></div>
+        </div></div>
         </div></div>
       </article>
       <aside class="win links pop">
@@ -321,7 +332,7 @@ blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--pur
         <div class="body">
           <ul>
             <li><a href="https://www.linkedin.com/in/devesh-poojary-436b64276/" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://github.com/Devesh1105/polymer-property-prediction" target="_blank" rel="noopener">Polymer repo</a></li>
+            <li><a href="https://lnkd.in/emcZr7n5" target="_blank" rel="noopener">Polymer repo</a></li>
             <li><a href="#episodes">Episode guide</a></li>
             <li><a href="#reviews">Reviews</a></li>
           </ul>

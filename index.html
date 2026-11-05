@@ -1,5 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Devesh Poojary</title>
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap">
@@ -12,12 +13,18 @@
   --f-body:"Zen Kaku Gothic New","Segoe UI",system-ui,sans-serif;
   --f-px:"Silkscreen","Courier New",monospace;
   --f-term:"VT323","Courier New",monospace;
-  color-scheme:light;
+  --bg:var(--navy); --fg:var(--cream); --grid:rgba(255,255,255,.05);
+  color-scheme:dark;
 }
+/* light theme: only the page backdrop and the text sitting on it change; windows, cards and banners keep their colours */
+html[data-theme="light"]{--bg:var(--paper);--fg:var(--navy);--grid:rgba(28,23,68,.08);color-scheme:light}
+html[data-theme="light"] .sub .typed,html[data-theme="light"] .made{color:var(--purple)}
+html[data-theme="light"] .menu .enter{color:var(--navy)}
+html[data-theme="light"] .dock svg{filter:drop-shadow(1px 0 0 var(--ink)) drop-shadow(-1px 0 0 var(--ink)) drop-shadow(0 1px 0 var(--ink)) drop-shadow(0 -1px 0 var(--ink))}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--navy);color:var(--cream);font-family:var(--f-body);overflow-x:hidden;margin:0}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--navy)}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);overflow-x:hidden;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
 a{color:inherit}
 img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
@@ -34,10 +41,16 @@ h1,h2,h3,p{margin:0}
 .planet::after{content:"";position:absolute;left:-10px;right:-10px;top:17px;height:10px;border:3px solid var(--orange);border-radius:50%;transform:rotate(-18deg)}
 .logo b{font:700 1rem/1.05 var(--f-px);color:var(--teal);letter-spacing:.12em;text-transform:uppercase}
 .menu{display:flex;align-items:center;gap:clamp(14px,2.6vw,34px);list-style:none;margin:0;padding:0;flex-wrap:wrap}
-.menu a{font:400 .9rem/1 var(--f-px);color:var(--cream);text-decoration:none;text-transform:uppercase;padding-bottom:6px;border-bottom:3px solid transparent}
+.menu a{font:400 .9rem/1 var(--f-px);color:var(--fg);text-decoration:none;text-transform:uppercase;padding-bottom:6px;border-bottom:3px solid transparent}
 .menu a:hover,.menu a.on{color:var(--orange);border-color:var(--orange)}
 .menu .enter{border:3px solid var(--teal);color:var(--teal);padding:8px 16px}
 .menu .enter:hover{background:var(--teal);color:var(--navy)}
+.tright{display:flex;align-items:center;gap:clamp(12px,2.6vw,34px)}
+.theme{display:grid;place-items:center;width:44px;height:44px;flex:none;padding:0;background:none;border:3px solid var(--teal);color:var(--fg);cursor:pointer}
+.theme:hover{background:var(--teal)}
+.theme svg{width:22px;height:22px}
+.theme .moon,html[data-theme="light"] .theme .sun{display:none}
+html[data-theme="light"] .theme .moon{display:block}
 .stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;gap:24px;align-items:center;padding-block:20px 0;min-height:600px;flex:1}
 .copy{padding-bottom:56px}
 .title{font:700 clamp(2.6rem,6.4vw,6.8rem)/.95 var(--f-px);text-transform:uppercase;letter-spacing:-.02em}
@@ -45,8 +58,8 @@ h1,h2,h3,p{margin:0}
 .title span:first-child{color:var(--orange)}
 .title span:last-child{color:var(--teal);animation-delay:.25s}
 @keyframes boot{0%{clip-path:inset(0 100% 0 0)}100%{clip-path:inset(0 0 0 0)}}
-.kana{display:inline-block;margin-top:14px;font:700 1rem/1 var(--f-body);letter-spacing:.45em;color:var(--cream);opacity:.7}
-.sub{margin-top:20px;font:400 clamp(1.4rem,2.4vw,1.8rem)/1.15 var(--f-term);color:var(--cream);text-transform:uppercase;max-width:30ch}
+.kana{display:inline-block;margin-top:14px;font:700 1rem/1 var(--f-body);letter-spacing:.45em;color:var(--fg);opacity:.7}
+.sub{margin-top:20px;font:400 clamp(1.4rem,2.4vw,1.8rem)/1.15 var(--f-term);color:var(--fg);text-transform:uppercase;max-width:30ch}
 .sub .typed{color:var(--gold)}
 .caret{display:inline-block;width:.55em;height:.9em;background:var(--orange);vertical-align:-.1em;margin-left:3px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
@@ -77,7 +90,7 @@ h1,h2,h3,p{margin:0}
 
 /* right dock */
 .dock{display:grid;gap:22px;justify-items:center;padding-bottom:56px}
-.dock a{display:grid;justify-items:center;gap:6px;font:400 .68rem/1 var(--f-px);color:var(--cream);text-decoration:none;text-transform:uppercase}
+.dock a{display:grid;justify-items:center;gap:6px;font:400 .68rem/1 var(--f-px);color:var(--fg);text-decoration:none;text-transform:uppercase}
 .dock svg{width:36px;height:36px;transition:transform .15s}
 .dock a:hover svg{transform:translateY(-4px)}
 .dock a:hover{color:var(--orange)}
@@ -86,7 +99,7 @@ h1,h2,h3,p{margin:0}
 
 
 /* ============ RETRO WORLD ============ */
-.grid-bg{background:var(--navy) linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/24px 24px;background-blend-mode:normal}
+.grid-bg{background:var(--bg) linear-gradient(var(--grid) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--grid) 1px,transparent 1px) 0 0/24px 24px;background-blend-mode:normal}
 .px{font-family:var(--f-px);text-transform:uppercase;letter-spacing:.06em}
 .hello{background:var(--orange);color:var(--navy);border-block:4px solid var(--ink)}
 .hello .wrap{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:28px;align-items:center;padding-block:22px}
@@ -105,7 +118,7 @@ section.zone{padding-block:72px}
 .zone-head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:30px}
 .zone-head h2{font:700 clamp(2rem,5.4vw,3.6rem)/1 var(--f-px);color:var(--orange);text-shadow:4px 4px 0 var(--ink)}
 .zone-head h2 em{font-style:normal;color:var(--teal)}
-.zone-head p{font:400 1.35rem/1.2 var(--f-term);color:var(--cream);opacity:.8}
+.zone-head p{font:400 1.35rem/1.2 var(--f-term);color:var(--fg);opacity:.8}
 
 .win{background:var(--cream);color:var(--navy);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);min-width:0;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
 .win:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
@@ -219,13 +232,14 @@ blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--pur
   <div class="wrap">
     <div class="topbar">
       <a class="logo" href="#home"><span class="planet" aria-hidden="true"></span><b>Devesh<br>Poojary</b></a>
-      <nav aria-label="Main"><ul class="menu">
+      <div class="tright"><nav aria-label="Main"><ul class="menu">
         <li><a class="on" href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#featured">Work</a></li>
         <li><a href="#episodes">Episodes</a></li>
         <li><a class="enter" href="#contact">Say hi</a></li>
       </ul></nav>
+      <button class="theme" id="theme" type="button" aria-label="Switch to light theme"><svg class="sun" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><g fill="#ffc53d"><rect x="4" y="4" width="4" height="4"/><rect x="5" y="0" width="2" height="2"/><rect x="5" y="10" width="2" height="2"/><rect x="0" y="5" width="2" height="2"/><rect x="10" y="5" width="2" height="2"/><rect x="1" y="1" width="2" height="2"/><rect x="9" y="1" width="2" height="2"/><rect x="1" y="9" width="2" height="2"/><rect x="9" y="9" width="2" height="2"/></g></svg><svg class="moon" viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><g fill="currentColor"><rect x="4" y="1" width="4" height="1"/><rect x="2" y="2" width="4" height="1"/><rect x="1" y="3" width="4" height="1"/><rect x="1" y="4" width="3" height="3"/><rect x="1" y="7" width="4" height="1"/><rect x="2" y="8" width="5" height="1"/><rect x="3" y="9" width="6" height="1"/><rect x="5" y="10" width="3" height="1"/></g></svg></button></div>
     </div>
     <div class="stage">
       <div class="copy">
@@ -427,6 +441,18 @@ blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--pur
 
 <script>
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// theme toggle: dark by default, remembers the visitor's choice
+(() => {
+  const root = document.documentElement, btn = document.getElementById('theme');
+  const sync = () => btn.setAttribute('aria-label', root.dataset.theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+  sync();
+  btn.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    try { localStorage.setItem('theme', root.dataset.theme); } catch {}
+    sync();
+  });
+})();
 
 // typed synopsis ending
 (() => {

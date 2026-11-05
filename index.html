@@ -21,11 +21,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 a{color:inherit}
 img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--orange);outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1600px;margin:0 auto;padding-left:max(16px,4vw,env(safe-area-inset-left,0px));padding-right:max(16px,4vw,env(safe-area-inset-right,0px))}
 h1,h2,h3,p{margin:0}
 
 /* ============ HERO: retro desktop ============ */
-.hero{position:relative;overflow:hidden;border-bottom:4px solid var(--ink);isolation:isolate}
+/* hero fills the whole window: the stage stretches to whatever height is left under the top bar */
+.hero{position:relative;overflow:hidden;border-bottom:4px solid var(--ink);isolation:isolate;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.hero>.wrap{flex:1;width:100%;display:flex;flex-direction:column}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:20px;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .planet{width:44px;height:44px;border-radius:50%;background:var(--teal);box-shadow:inset -8px -6px 0 rgba(0,0,0,.25);position:relative;flex:none}
@@ -36,9 +38,9 @@ h1,h2,h3,p{margin:0}
 .menu a:hover,.menu a.on{color:var(--orange);border-color:var(--orange)}
 .menu .enter{border:3px solid var(--teal);color:var(--teal);padding:8px 16px}
 .menu .enter:hover{background:var(--teal);color:var(--navy)}
-.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;gap:24px;align-items:center;padding-block:20px 0;min-height:600px}
+.stage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) auto;gap:24px;align-items:center;padding-block:20px 0;min-height:600px;flex:1}
 .copy{padding-bottom:56px}
-.title{font:700 clamp(2.6rem,6.4vw,5.6rem)/.95 var(--f-px);text-transform:uppercase;letter-spacing:-.02em}
+.title{font:700 clamp(2.6rem,6.4vw,6.8rem)/.95 var(--f-px);text-transform:uppercase;letter-spacing:-.02em}
 .title span{display:block;text-shadow:6px 6px 0 var(--ink);animation:boot .9s steps(6) both}
 .title span:first-child{color:var(--orange)}
 .title span:last-child{color:var(--teal);animation-delay:.25s}
@@ -184,6 +186,8 @@ section.zone{padding-block:72px}
 /* reviews + details */
 .duo{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px}
 @media (max-width:860px){.duo{grid-template-columns:1fr}}
+.about p+p{margin-top:14px}
+.about .hl{color:var(--purple)}
 blockquote{margin:0;font:400 1.45rem/1.2 var(--f-term)}
 blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--purple)}
 .stars{color:var(--orange);font-size:1.4rem;letter-spacing:4px;margin-bottom:10px}
@@ -217,7 +221,7 @@ blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--pur
       <a class="logo" href="#home"><span class="planet" aria-hidden="true"></span><b>Devesh<br>Poojary</b></a>
       <nav aria-label="Main"><ul class="menu">
         <li><a class="on" href="#home">Home</a></li>
-        <li><a href="#now">About</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#featured">Work</a></li>
         <li><a href="#episodes">Episodes</a></li>
         <li><a class="enter" href="#contact">Say hi</a></li>
@@ -249,7 +253,7 @@ blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--pur
 
       <nav class="dock" aria-label="Quick links">
         <a href="#home"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="5" y="1" width="2" height="1" fill="#f07a2c"/><rect x="3" y="2" width="6" height="1" fill="#f07a2c"/><rect x="1" y="3" width="10" height="2" fill="#f07a2c"/><rect x="2" y="5" width="8" height="6" fill="#f4ead3"/><rect x="5" y="7" width="2" height="4" fill="#6c4dc9"/></svg>Home</a>
-        <a href="#now"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="2" y="1" width="7" height="10" fill="#f4ead3"/><rect x="9" y="3" width="1" height="8" fill="#a99e85"/><rect x="3" y="3" width="5" height="1" fill="#1c1744"/><rect x="3" y="5" width="5" height="1" fill="#1c1744"/><rect x="3" y="7" width="4" height="1" fill="#1c1744"/></svg>About</a>
+        <a href="#about"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="2" y="1" width="7" height="10" fill="#f4ead3"/><rect x="9" y="3" width="1" height="8" fill="#a99e85"/><rect x="3" y="3" width="5" height="1" fill="#1c1744"/><rect x="3" y="5" width="5" height="1" fill="#1c1744"/><rect x="3" y="7" width="4" height="1" fill="#1c1744"/></svg>About</a>
         <a href="#featured"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="3" y="3" width="6" height="6" fill="#6c4dc9"/><rect x="4" y="4" width="2" height="2" fill="#b9a6f2"/><rect x="0" y="6" width="12" height="1" fill="#f07a2c"/><rect x="1" y="5" width="2" height="1" fill="#f07a2c"/><rect x="9" y="7" width="2" height="1" fill="#f07a2c"/></svg>Projects</a>
         <a href="#contact"><svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="3" width="10" height="7" fill="#f4ead3"/><rect x="2" y="4" width="1" height="1" fill="#1c1744"/><rect x="3" y="5" width="1" height="1" fill="#1c1744"/><rect x="4" y="6" width="4" height="1" fill="#1c1744"/><rect x="8" y="5" width="1" height="1" fill="#1c1744"/><rect x="9" y="4" width="1" height="1" fill="#1c1744"/></svg>Contact</a>
       </nav>
@@ -273,7 +277,36 @@ blockquote footer{margin-top:14px;font:700 .8rem/1.3 var(--f-px);color:var(--pur
 </div>
 
 <main class="grid-bg">
-  <section class="zone" id="now">
+  <section class="zone" id="about">
+    <div class="wrap">
+      <div class="zone-head"><h2>About <em>me</em></h2><p>Character profile · Player 01</p></div>
+      <div class="duo">
+        <article class="win pop">
+          <div class="bar o">about_me.txt<span class="btns"><i></i><i></i><i></i></span></div>
+          <div class="body about">
+            <p>I'm Devesh, an AI/ML engineer from Mumbai who builds models from <span class="hl">first principles</span>.</p>
+            <p>Before I wrote code I spent two years in mechanical maintenance, and it shows: I treat every model like a machine. Understand the physics first, then tune.</p>
+            <p>By day I'm an AI/ML Contributor at <span class="hl">Datacurve · Shipd</span>, writing, solving and verifying the coding problems frontier AI models learn from. By night I'm on Kaggle chasing leaderboards, or drawing, gaming and catching up on anime.</p>
+            <p>A rank is a snapshot of one day. The skill behind it is what I'm grinding for.</p>
+          </div>
+        </article>
+        <article class="win pop">
+          <div class="bar t">character.sav<span class="btns"><i></i></span></div>
+          <div class="body dl">
+            <div><b>Class</b>AI/ML Engineer · B.Tech AI &amp; ML, NMIMS MPSTME '27</div>
+            <div><b>Origin</b>Mumbai, IN · mechanical maintenance arc, 2021–2023</div>
+            <div><b>Main weapon</b>Python</div>
+            <div><b>Specials</b>Physics-informed features · validation design · audio ML</div>
+            <div><b>Guild</b>Datacurve · Shipd</div>
+            <div><b>Side quests</b>Anime, manga, gaming, drawing</div>
+            <div><b>Status</b>Awake at 3am fixing a bug nobody asked me to fix</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone" id="now" style="padding-top:0">
     <div class="wrap">
       <div class="zone-head"><h2>Now <em>streaming</em></h2><p>Current role · Present</p></div>
       <article class="win pop">
